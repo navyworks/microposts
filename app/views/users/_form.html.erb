@@ -1,3 +1,6 @@
+
+
+
 <%= form_for(@user) do |f| %>
 
     <%= render 'shared/error_messages', object: f.object %>
@@ -7,12 +10,18 @@
     
     <%= f.label :email %>
     <%= f.text_field :email %>
-    
+
     <%= f.label :password %>
     <%= f.password_field :password %>
     
     <%= f.label :password_confirmation, "Confirmation" %>
     <%= f.password_field :password_confirmation %>
+
+    <%= f.label :prefecture %>
+
+
+    <%= f.label :profile %>
+    <%= f.text_area :profile, :size => "20x10" %>
     
     <%= f.submit yield(:button_text), class: "btn btn-large btn-primary" %>
     
