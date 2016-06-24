@@ -15,7 +15,7 @@
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
   <%= f.label :prefectures_code %>
-  <%= f.collection_select :prefectures_code, JpPrefecture::Prefecture.all, :name, :name %>
+  <%= f.collection_select :prefectures_code, JpPrefecture::Prefecture.all, :name, :name, {}, {:class => "form-control"} %>
 
   <%= f.label :profile %>
   <%= f.text_area :profile, :size => "20x10", class: 'form-control' %>
