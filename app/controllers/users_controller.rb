@@ -28,9 +28,9 @@ class UsersController < ApplicationController
   end
   
   def update
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       # 保存に成功した場合はトップページへリダイレクト
-      redirect_to root_path , notice: 'プロフィールを編集しました'
+      redirect_to @user , notice: 'プロフィールを編集しました'
     else
       # 保存に失敗した場合は編集画面へ戻す
       render 'edit'
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-  	params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  	params.require(:user).permit(:name, :email, :password, :password_confirmation, :prefectures_code, :profile)
   end
   
   def set_user

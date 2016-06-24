@@ -64,6 +64,7 @@ GEM
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
+    jp_prefecture (0.8.1)
     jquery-rails (4.1.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -124,7 +125,7 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     spring (1.7.1)
-    sprockets (3.6.0)
+    sprockets (3.6.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.0.4)
@@ -154,6 +155,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
+  jp_prefecture (~> 0.8.1)
   jquery-rails
   rails (= 4.2.6)
   sass-rails (~> 5.0)

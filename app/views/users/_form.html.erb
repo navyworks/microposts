@@ -17,8 +17,8 @@
     <%= f.label :password_confirmation, "Confirmation" %>
     <%= f.password_field :password_confirmation %>
 
-    <%= f.label :prefecture %>
-
+    <%= f.label :prefectures_code %>
+    <%= f.collection_select :prefectures_code, JpPrefecture::Prefecture.all, :name, :name %>
 
     <%= f.label :profile %>
     <%= f.text_area :profile, :size => "20x10" %>
