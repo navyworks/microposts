@@ -1,32 +1,48 @@
-<div class="panel panel-info">
-  <div class="panel-body">
-    <%= gravatar_for @user %>
-  </div>
-  <div class="panel-heading">
-      <h5 class="panel-title" id="panel-title">Name</h5>
-  </div>
-  <div class="panel-body">
-      <%= @user.name %>(<%= link_to "編集" , edit_user_path(@user.id) %>)
-  </div>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+      </h1>
+    </section>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+          <h5 class="panel-title" id="panel-title">Name</h5>
+      </div>
+      <div class="panel-body">
+          <%= @user.name %>(<%= link_to "編集" , edit_user_path(@user.id) %>)
+      </div>
   
-  <div class="panel-heading">
-      <h5 class="panel-title" id="panel-title">Email</h5>
-  </div>
-  <div class="panel-body">
-      <%= @user.email %>
-  </div>
+      <div class="panel-heading">
+          <h5 class="panel-title" id="panel-title">Email</h5>
+      </div>
+      <div class="panel-body">
+          <%= @user.email %>
+      </div>
   
-  <div class="panel-heading">
-      <h5 class="panel-title" id="panel-title">Prefectures</h5>
-  </div>
-  <div class="panel-body">
-      <%= @user.prefectures_code %>
-  </div>
+      <div class="panel-heading">
+          <h5 class="panel-title" id="panel-title">Prefectures</h5>
+      </div>
+      <div class="panel-body">
+          <%= @user.prefectures_code %>
+      </div>
   
-  <div class="panel-heading">
-      <h5 class="panel-title" id="panel-title">Profile</h5>
-  </div>
-  <div class="panel-body">
-      <%= @user.profile %>
+      <div class="panel-heading">
+          <h5 class="panel-title" id="panel-title">Profile</h5>
+      </div>
+      <div class="panel-body">
+          <%= @user.profile %>
+      </div>
+    </div>
+
+  </aside>
+  <div class="col-md-8">
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+    <% end %>
   </div>
 </div>
