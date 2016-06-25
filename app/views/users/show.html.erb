@@ -1,7 +1,32 @@
-<h1>
+<div class="panel panel-info">
+  <div class="panel-body">
+    <%= gravatar_for @user %>
+  </div>
+  <div class="panel-heading">
+      <h5 class="panel-title" id="panel-title">Name</h5>
+  </div>
+  <div class="panel-body">
+      <%= @user.name %>(<%= link_to "編集" , edit_user_path(@user.id) %>)
+  </div>
   
-<%= gravatar_for @user %>
-
-<%= @user.name %>
-
-</h1>
+  <div class="panel-heading">
+      <h5 class="panel-title" id="panel-title">Email</h5>
+  </div>
+  <div class="panel-body">
+      <%= @user.email %>
+  </div>
+  
+  <div class="panel-heading">
+      <h5 class="panel-title" id="panel-title">Prefectures</h5>
+  </div>
+  <div class="panel-body">
+      <%= @user.prefectures_code %>
+  </div>
+  
+  <div class="panel-heading">
+      <h5 class="panel-title" id="panel-title">Profile</h5>
+  </div>
+  <div class="panel-body">
+      <%= @user.profile %>
+  </div>
+</div>

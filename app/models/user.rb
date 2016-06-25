@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
-	before_save { self.email = self.email.downcase }
-	validates :name, presence: true, length: { maximum: 50 }
-	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-	has_secure_password
-	has_many :microposts
+  before_save { self.email = self.email.downcase }
+  validates :name, presence: true, length: { maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  has_secure_password
+  validates :profile, presence: true, length: { maximum: 160 }
+  validates :prefectures_code, inclusion: { in: (JpPrefecture::Prefecture.all.map{|d|d.name}),message: "の%{value} は無効です" }
+  has_many :microposts
 end
