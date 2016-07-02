@@ -1,4 +1,7 @@
 <% users.each do |user| %>
-  <%= gravatar_for(user, {size: 40}) %>
-  <%= user.name %>
+  <div>
+  <%= gravatar_for(user, {size: 40}) %><%= user.name %><br>
+  <%= user.profile %>
+  </div>
+  <hr>
 <% end %>
