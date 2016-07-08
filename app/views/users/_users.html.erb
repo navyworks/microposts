@@ -1,6 +1,6 @@
 <% users.each do |user| %>
   <div>
-  <%= gravatar_for(user, {size: 40}) %><%= user.name %><br>
+  <%= gravatar_for(user, {size: 40}) %><%= link_to user.name, user %><br>
   <%= user.profile %>
   </div>
   <hr>

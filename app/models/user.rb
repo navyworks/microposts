@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :follower_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent:   :destroy
   has_many :follower_users, through: :follower_relationships, source: :follower
 
+  has_many :favorites
+  has_many :favorite_microposts, through: :favorites, source: :micropost
 
   # 他のユーザーをフォローする
   def follow(other_user)
@@ -36,6 +38,22 @@ class User < ActiveRecord::Base
   # フォローしているユーザーのつぶやきを取得
   def feed_items
     Micropost.where(user_id: following_user_ids + [self.id])
+  end
+  
+  # お気に入りに追加
+  def like(micropost)
+    favorites.find_or_create_by(micropost_id: micropost.id)
+  end
+  
+  # お気に入りを削除
+  def unlike(micropost)
+    fav = favorites.find_by(micropost_id: micropost.id)
+    fav.destroy if fav.present?
+  end
+  
+  # お気に入りに存在しているか確認
+  def favorite?(micropost)
+    Favorite.exists?(micropost_id: micropost.id, user_id: id)
   end
 
 end

@@ -7,5 +7,12 @@
     <% if current_user == micropost.user %>
       <%= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" } %>
     <% end %>
+
+    <% if current_user.favorite?(micropost) %>
+      <%= button_to "お気に入り削除", favorite_path(favorite: {user_id: current_user.id, micropost_id: micropost.id}), :method => :delete %>
+    <% else %>
+      <%= button_to "お気に入り追加", favorites_path(favorite: {user_id: current_user.id, micropost_id: micropost.id}) %>
+    <% end %>
+
   </span>
 </li>

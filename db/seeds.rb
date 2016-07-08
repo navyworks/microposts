@@ -8,11 +8,19 @@
 
 
 
-User.create!( 
-    email: 'hogehoge@hoge.com',
-    password: 'password',
-    password_confirmation: 'password',
-    name: 'hogehoge',
-    prefectures_code: '沖縄',
-    profile: 'hohohohohohohohoho'
-)
+#User.create!( 
+#    email: 'hogehoge@hoge.com',
+#    password: 'password',
+#    password_confirmation: 'password',
+#    name: 'hogehoge',
+#    prefectures_code: '沖縄',
+#    profile: 'hohohohohohohohoho'
+#)
+
+
+#Favorites.create!( 
+#    micropost_id: 1
+#    user_id: 9
+#)
+
+#Favorite.create(micropost_id: '1',   user_id: '9')
