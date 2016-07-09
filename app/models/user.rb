@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
   
   # お気に入りに存在しているか確認
   def favorite?(micropost)
-    favorites.exists?(micropost_id: micropost.id, user_id: id)
+    favorites.exists?(micropost_id: micropost.id)
   end
 
 end
